@@ -1,0 +1,26 @@
+<head>
+<Link  rel = "stylesheet"  href = "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" >
+<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<script type="text/javascript" src="/public/jquery.js"></script>
+<script type="text/javascript" src="controllers/index.js"></script>
+</head>
+<body class='page1'>
+  <div class='menubar'>
+      <ul class="nav nav-pills">
+    <a class="va" id ='home' href='/index'>&nbsp;Plans tonight?</a>
+   <button class='btn btn-primary'><a href='/logout' class='out'>Log out</a></button>
+   <div id='dname'></div>
+ </ul>
+  </div><br/><br/><br/>
+  <div class='row'>
+     <div class='col-xs-4'><br/> <i class="glass fa fa-3x fa-glass" aria-hidden="true"></i></div>
+     <div class='col-xs-8'><h1 class='tit'>Plans tonight?</h1><br/><br/></div>
+   </div>
+<div class='row'>
+<div class='col-xs-7'><input id = "search" name='where' class="form-control " placeholder="Where you at?"></div>
+<div class='col-xs-5'><button class='but'><i class="right fa fa-2x fa-arrow-right" aria-hidden="true"></i></button></div>
+</div>
+</body>
+<script type="text/javascript" src="/common/ajax-functions.js"></script>
+<script type="text/javascript" src="/controllers/userController.client.js"></script>

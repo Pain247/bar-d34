@@ -1,0 +1,58 @@
+.page1{
+  background-color: #DDDDDD;
+}
+.menubar{
+  height:50px;
+  background-color: violet;
+ }
+ .va{
+   font-size:1.8em;
+   margin-top:14px;
+   font-family: 'Raleway', sans-serif;
+   color:black;
+ }
+.btn {
+	margin: 0 1200px;
+	color: white;
+	display: inline-block;
+	border: 0;
+	font-size: 14px;
+	border-radius: 3px;
+	padding: 10px 5px;
+	width: 120px;
+	font-weight: 500;
+  margin-top: -30px;
+
+}
+.out{
+  color:white;
+  font-size:15px;
+}
+.tit{
+ margin-left: 48px;
+   font-family: 'Raleway', sans-serif;
+   font-size:50px;
+}
+#search{
+  width:60%;
+  margin-left: 325px;;
+}
+.glass{
+  margin-left: 448px;
+  color: violet;
+}
+.right{
+  color:violet;
+
+}
+.but{
+  width:70px;
+  border-radius: 3px;
+ margin-left: 80px;
+}
+#display-name{
+font-size:1.6em;
+margin-right:200px;
+ margin-top: -33px;;
+  color:black;
+}
