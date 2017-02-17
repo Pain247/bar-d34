@@ -1,39 +1,40 @@
-$(document).ready(function(){
-var arrImg=[];
+var app = angular.module('App',['ngSanitize']);
+app.controller('ctrller',['$scope','$http','$location',function($scope,$http,$location){
+  var arr =[];
+  var d=[];
 
-$("#enter").on('click',function(){
-  $(".block").hide();
-  var location= $("#search").val();
-  var url='https://maps.googleapis.com/maps/api/place/textsearch/json?query=bar+in+'+location+'&key=AIzaSyCJ3eOkxCa25iQq9BC34xEtZzhuNrxAFFc';
-  $.ajax({
-  type:"GET",
-  url: url,
-  async:true,
-  dataType:"json",
-  success: function(data){
-
-
-  if(data.results.length===0){
-       $("#output").prepend("<h1 class='wrong'>WRONG CITY!</h1>");
-     }
-  for(var j=0;j<data.results.length;j++){
-    if(data.results[j].hasOwnProperty('photos')===false) img='https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png';
-    else img='https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference='+data.results[j].photos[0].photo_reference+'&key=AIzaSyCJ3eOkxCa25iQq9BC34xEtZzhuNrxAFFc';
-     arrImg.push(img);
+  $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+   $scope.post= function(){
+    $scope.value= true;
+    $scope.noti = true;
+    var location= angular.lowercase($scope.loc);
+    var data = {location : location};
+    $http({
+     method  : 'POST',
+     url     : window.location.origin+'/bar',
+     data    : data
+    });
+    $http.get(window.location.origin+'/api/place/'+location)
+           .success(function(res) {
+            var response = angular.fromJson(res);
+            console.log(response.length);
+            if(response.length===0){
+              noti = false;
+            }
+            else {
+              noti= true;
+              response.forEach(function(item){
+              d.push({
+                id: item.id,
+                name: item.name,
+                address: item.address,
+                status: item.status,
+                photo: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+item.photo+"&key=AIzaSyCJ3eOkxCa25iQq9BC34xEtZzhuNrxAFFc"
+              });
+            });
+           $scope.data =d;
+           $scope.value= false;
+           d=[];
+  }});
   }
-
-
- for(var i=0;i<data.results.length;i++){
-    $("#output").append("<div><div class='block'><div class='row'><div class='col-xs-1'><br/><img src="+arrImg[i]+" width=120 height=120></div><div class='col-xs-9'><br/><a><h2 class='barname'>"+data.results[i].name+"<br/></h2></a><h2 class='name'>"+data.results[i].formatted_address+"</h2></div><div class='col-xs-2'></div></div></div></div><br/>" );
-
-}
-  },
-  error : function(errorMessage){
-   alert("ERROR") ;
- },
-});
-
-
-  });
-
-});
+}]);

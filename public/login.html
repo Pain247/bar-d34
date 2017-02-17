@@ -1,16 +1,16 @@
-<header>
-  <title> Plans night</title>
-<script type="text/javascript" src="/public/jquery.js"></script>
+<html ng-app='App'>
+<head>
+<link href="/public/css/login.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<Link  rel = "stylesheet"  href = "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-sanitize.js"></script>
 <script type="text/javascript" src="/public/login.js"></script>
-  <head>
- <Link  rel = "stylesheet"  href = "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" >
- <link href="/public/css/login.css" rel="stylesheet" type="text/css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500" />
 </head>
-
-</header>
-<body class='page1'>
+<body class='page1' ng-controller='ctrller'>
   <div class='menubar'>
       <ul class="nav nav-pills">
     <a class="va" id ='home' href='/index'>&nbsp;Plans tonight?</a>
@@ -22,16 +22,31 @@
   </div>
 </a></ul>
 </div><br/><br/><br/>
-     <div class='row'>
-        <div class='col-xs-4'><br/> <i class="glass fa fa-3x fa-glass" aria-hidden="true"></i></div>
-        <div class='col-xs-8'><h1 class='tit'>Plans tonight?</h1><br/><br/></div>
-      </div>
   <div class='row'>
-   <div class='col-xs-7'><input id = "search" name='where' class="form-control " placeholder="Where you at?"></div>
-   <div class='col-xs-5'><button class='but' id='enter'><i class="right fa fa-2x fa-arrow-right" aria-hidden="true"></i></button></div>
-</div><br/><br/><br/>
-<div id='output'>
+     <div class='col-xs-4'><br/> <i class="glass fa fa-3x fa-glass" aria-hidden="true"></i></div>
+     <div class='col-xs-8'><h1 class='tit'>Plans tonight?</h1><br/><br/></div>
+   </div>
+<div class='row'>
+<div class='col-xs-7'><input autocomplete="off" id = "search" name='where' class="form-control " placeholder="Where you at?" ng-model="loc"></div>
+<div class='col-xs-5'><button class='but' id='enter' ng-click="post()"><i class="right fa fa-2x fa-arrow-right" aria-hidden="true"></i></button></div>
+</div><br/><br/>
+<div id='output' ng-repeat="bar in data">
+<div>
+<div class='block' ng-hide="value">
+<div class='row'>
+<div class='col-xs-1'><br/>
+  <img src= {{bar.photo}} height="120" width="120">
+</div>
+<div class='col-xs-9'><br/>
+  <h2 class='barname'>{{bar.name}}<br/></h2>
+  <h2 class='name'>{{bar.address}}<br/></h2>
+  <h2 class='name'>{{bar.status?"Open":"Close"}}</h2>
+</div>
+</div>
+</div>
+</div>
 </div>
 </body>
+</html>
 <script type="text/javascript" src="/common/ajax-functions.js"></script>
 <script type="text/javascript" src="/controllers/userController.client.js"></script>

@@ -21,7 +21,6 @@ module.exports = function (passport) {
 		callbackURL: configAuth.facebookAuth.callbackURL
 	},
 	function (token, refreshToken, profile, done) {
-		console.log(profile);
 		process.nextTick(function () {
 			User.findOne({ 'facebook.id': profile.id }, function (err, user) {
 				if (err) {
@@ -35,7 +34,7 @@ module.exports = function (passport) {
 
 					newUser.facebook.id = profile.id;
 					newUser.facebook.displayName = profile.displayName;
-
+          newUser.facebook.history = '';
 					newUser.save(function (err) {
 						if (err) {
 							throw err;

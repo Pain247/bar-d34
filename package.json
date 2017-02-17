@@ -9,19 +9,22 @@
   },
   "permissions": [
     "*://*/*"
-],
+  ],
   "author": "D",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
+    "google-locations": "^0.2.0",
     "mongodb": "^2.2.21",
     "mongoose": "^4.7.7",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "underscore": "^1.8.3"
   }
 }

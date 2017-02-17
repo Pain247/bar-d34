@@ -6,7 +6,8 @@ var User = new Schema({
 facebook:{
   id: String,
   displayName:String,
-  email: String
+  email: String,
+  history: String
 }
 });
 module.exports = mongoose.model('User',User);
