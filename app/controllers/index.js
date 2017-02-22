@@ -2,8 +2,7 @@ var app = angular.module('myApp',['ngSanitize']);
 app.controller('ctrl',['$scope','$http','$location',function($scope,$http,$location){
   var arr =[];
   var d=[];
-
-  $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
    $scope.post= function(){
      var location = angular.lowercase($scope.loc);
     $scope.value= true;
